@@ -59,10 +59,10 @@ jobs:
             password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag supriyohub/devsecops:latest
+        run: docker build . --file Dockerfile --tag proplayer071/devsecops:latest
             
       - name: Docker Push
-        run: docker push supriyohub/devsecops:latest
+        run: docker push proplayer071/devsonar:latest
 
  zap_scan:
    needs: build-image-publish-to-dockerhub
@@ -81,3 +81,4 @@ jobs:
          target: 'https://www.zaproxy.org'  #replace with your load balancer url
          rules_file_name: '.zap/rules.tsv'
          cmd_options: '-a'
+         
